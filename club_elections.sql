@@ -59,4 +59,30 @@ Where favoritecolor IS NULL;
 SELECT COUNT(*) FROM clubMembers;
 -- Question 6. How many are in 10th grade?
 SELECT COUNT(*) FROM clubMembers
+
+    
+-- Question 7. Who did member #6 vote for? 
+SELECT candidateId FROM votes
+WHErE voterID = 6;
+-- Question 8. Who did Beth vote for?
+SELECT candidateid FROM votes
+WHERE id = 2;
+-- Question 9. Who voted for Beth? 
+SELECT voterid FROM votes
+WHERE candidateid = 2;
+-- Question 10. Who voted for themselves?
+SELECT voterid FROM votes
+WHERE voterid = candidateid;
 Where grade = 10;
+-- Question 11. Who didn't vote?
+SELECT name FROM clubMembers
+LEFT JOIN votes on clubMembers.id = votes.voterId
+WHERE votes.voterId IS NULL;
+-- Question 12. What are the election results (candidate + vote count)?
+SELECT candidateid, COUNT(*) AS total_votes FROM votes
+GROUP BY candidateid;
+-- Question 13. Who won?
+SELECT candidateid, COUNT(*) AS total_votes FROM votes
+GROUP BY candidateid
+ORDER BY total_votes DESC
+LIMIT 1;
