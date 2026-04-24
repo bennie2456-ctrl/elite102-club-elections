@@ -86,3 +86,24 @@ SELECT candidateid, COUNT(*) AS total_votes FROM votes
 GROUP BY candidateid
 ORDER BY total_votes DESC
 LIMIT 1;
+
+
+-- Question 14. Add Isabel (id 9, grade 8, favorite color purple)
+INSERT INTO clubMembers (id, name, grade, favoritecolor) VALUES
+(9, 'Isabel', 8, 'purple');
+SELECT * FROM clubMembers;
+-- Question 15. Record that Isabel voted for Beth
+INSERT INTO votes (voterId, candidateId) VALUES
+    (9, 2); -- Isabel   -> Beth
+SELECT candidateid FROM votes
+WHERE voterid = 9;
+-- Question 16. Change Isabel's vote to Dana.
+UPDATE votes SET candidateid = 4
+WHERE voterid = 9;
+SELECT candidateid FROM votes
+WHERE voterid = 9;
+-- Question 17. Remove Isabel's vote
+DELETE FROM votes 
+WHERE voterId = 9;
+SELECT candidateid FROM votes
+WHERE voterId = 9;
