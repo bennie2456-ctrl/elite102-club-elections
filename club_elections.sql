@@ -39,3 +39,6 @@ INSERT INTO votes (voterId, candidateId) VALUES
     (4, 4),  -- Dana   -> Dana
     (5, 2),  -- Eli    -> Beth
     (6, 7);  -- Fay    -> Grace
+
+SELECT * FROM clubMembers;
+SELECT * FROM votes;
