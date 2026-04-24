@@ -42,3 +42,21 @@ INSERT INTO votes (voterId, candidateId) VALUES
 
 SELECT * FROM clubMembers;
 SELECT * FROM votes;
+
+-- Question 1. Who is member #5?
+SELECT name FROM clubMembers
+    WHERE id = 5;
+-- Question 2. What is their favorite color?
+SELECT favoritecolor FROM clubMembers
+Where name = 'Eli';
+ -- Questions 3. Whose favorite color is blue? 
+SELECT name FROM clubMembers
+    WHERE favoritecolor = 'blue';
+-- Question 4. Who doesn't have a favorite color?
+SELECT name FROM clubMembers
+Where favoritecolor IS NULL;
+-- Question 5. How many members are there?
+SELECT COUNT(*) FROM clubMembers;
+-- Question 6. How many are in 10th grade?
+SELECT COUNT(*) FROM clubMembers
+Where grade = 10;
